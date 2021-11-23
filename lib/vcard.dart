@@ -4,7 +4,6 @@ import 'dart:io';
 import 'dart:convert';
 
 import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart';
 import 'package:validators/validators.dart';
 
 import 'vcard_formatter.dart';
@@ -132,16 +131,6 @@ class VCard {
   /// Get formatted vCard
   /// @return {String} Formatted vCard in VCF format
   String getFormattedString() => VCardFormatter().getFormattedString(this);
-
-  /// Save formatted vCard to file
-  /// @param  {String} filename
-  saveToFile(filename) async {
-    String contents = getFormattedString();
-
-    final directory = await getApplicationDocumentsDirectory();
-    final fs = File('${directory.path}/vCard/exports/$filename');
-    fs.writeAsStringSync(contents);
-  }
 
   /// Get social media URLs
   /// @return {Map<String, String>} Social media URL username map
