@@ -31,7 +31,8 @@ class VCardFormatter {
   /// @param  {String} mediaType       Media-type of photo (JPEG, PNG, GIF)
   /// @param  {String} isBase64        Whether or not is Base64 format
   /// @return {String}                 Formatted photo
-  String getFormattedPhoto(String photoType, String url, String mediaType, bool isBase64) {
+  String getFormattedPhoto(
+      String photoType, String url, String mediaType, bool isBase64) {
     String params;
 
     if (majorVersion >= 4) {
@@ -389,7 +390,7 @@ class VCardFormatter {
     }
 
     vCard.socialUrls.forEach((key, value) {
-      if ((value != null) && (value.isNotEmpty)) {
+      if (value.isNotEmpty) {
         formattedVCardString += 'X-SOCIALPROFILE' +
             encodingPrefix +
             ';TYPE=' +

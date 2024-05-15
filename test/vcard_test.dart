@@ -13,7 +13,6 @@ void main() {
     vcard.homeAddress.stateProvince = 'SW';
     vcard.homeAddress.countryRegion = 'Cameroon';
     //print(vcard.getFormattedString());
-    expect(vcard.getFormattedString() is String, true);
     expect(vcard.getFormattedString().contains(RegExp(r'BEGIN:VCARD')), true);
   });
 }
